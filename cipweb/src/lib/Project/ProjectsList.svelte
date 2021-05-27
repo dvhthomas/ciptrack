@@ -4,9 +4,13 @@
 	export let projects: ProjectSummaryType[];
 </script>
 
-<table>
-	<th>Name</th><th>Detail</th>
-	{#each projects as project}
-		<ProjectSnippet {project} />
-	{/each}
-</table>
+{#if projects.length === 0}
+	<p>No projects selected.</p>
+{:else}
+	<table>
+		<th>Name</th><th>Detail</th>
+		{#each projects as project}
+			<ProjectSnippet {project} />
+		{/each}
+	</table>
+{/if}
